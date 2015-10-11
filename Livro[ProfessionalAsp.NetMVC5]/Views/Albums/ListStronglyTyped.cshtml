@@ -1,0 +1,8 @@
+@using Livro_ProfessionalAsp.NetMVC5_.Models;
+@model IEnumerable<Album>
+
+<ul>
+@foreach(Album p in Model) {
+  <li>@p.Title</li>
+}
+</ul>

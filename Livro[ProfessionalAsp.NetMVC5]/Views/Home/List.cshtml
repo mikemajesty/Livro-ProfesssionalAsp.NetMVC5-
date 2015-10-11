@@ -1,0 +1,19 @@
+﻿@using Livro_ProfessionalAsp.NetMVC5_.Models;
+@{
+    ViewBag.Title = "List";
+    Layout = null;
+}
+
+<h2>List</h2>
+
+<ul>
+    @foreach (Album a in (ViewBag.Albums as IEnumerable<Album>))
+    {
+
+        <li>@a.Title</li>
+    }
+</ul>
+
+@*@section Footer {
+    This is the <strong>footer</strong>.
+}*@
