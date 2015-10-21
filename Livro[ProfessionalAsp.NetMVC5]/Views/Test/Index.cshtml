@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@{
+
+    @Html.Action("Menu", new {options = new Livro_ProfessionalAsp.NetMVC5_.Models.MenuOptions { Width = 400, Height = 500 }})
+    @Html.RouteLink("Link Text", new { action = "Index", controller = "Home" })
+
+    <span>
+        @Url.Action("Browse", "Store", new { genre = "Jazz" }, null)
+    </span>
+    @Html.Raw("Album:")<br />
+    @Html.TextBox("Album")<br />
+    @Html.Raw("AlbumArtUrl:")<br />
+    @Html.TextBox("AlbumArtUrl")<br />
+    @Html.Raw("Album.AlbumArtUrl:")<br />
+    @Html.TextBox("Album.AlbumArtUrl")
+}
