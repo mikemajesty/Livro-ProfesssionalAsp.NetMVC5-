@@ -10,7 +10,9 @@ namespace Livro_ProfessionalAsp.NetMVC5_
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new MusicStoreDBContextInitializer());
+            //Database.Delete("MusicStoreDBContext");
+            Database.SetInitializer<MusicStoreDBContext>(new  MusicStoreDBContextInitializer());
+           
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
