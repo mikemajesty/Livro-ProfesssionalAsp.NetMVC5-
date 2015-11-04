@@ -1,38 +1,39 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using Livro_ProfessionalAsp.NetMVC5_.Models;
 
 namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
 {
     public class StoreController : Controller
     {
-        // GET: Store
-        // GET: /Store/
-        public string Index()
+        [AllowAnonymous]
+        public ActionResult Index()
         {
-            return "Hello from Store.Index()";
+            var albums = GetAlbums();
+
+            return View(albums);
         }
-        //
-        // GET: /Store/Browse
-        [HttpPost]
-        public string Browse()
+
+        [Authorize]
+        public ActionResult Buy(int id)
         {
-            return "Hello from Store.Browse()";
+            var album = GetAlbums().Single(a => a.AlbumId == id);
+
+            //Charge the user and ship the album!!!
+            return View(album);
         }
-        //
-        // GET: /Store/Details
-        public string Details()
+
+        // A simple music catalog
+        private static List<Album> GetAlbums()
         {
-            return "Hello from Store.Details()";
-        }
-        // GET: /Store/Browse?genre=?Disco
-        public string Browse(string genre)
-        {
-            string message =
-               HttpUtility.HtmlEncode("Store.Browse, Genre = " + genre);
-            return message;
+            var albums = new List<Album>{
+                new Album { AlbumId = 1, Title = "The Fall of Math", Price = 8.99M},
+                new Album { AlbumId = 2, Title = "The Blue Notebooks", Price = 8.99M},
+                new Album { AlbumId = 3, Title = "Lost in Translation", Price = 9.99M },
+                new Album { AlbumId = 4, Title = "Permutation", Price = 10.99M },
+            };
+            return albums;
         }
     }
 }

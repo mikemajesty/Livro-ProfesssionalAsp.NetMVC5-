@@ -12,7 +12,7 @@ namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
         // GET: Test
         public ActionResult Index()
         {
-            ViewBag.Album =  new Album { AlbumArtUrl = "Mike" };
+            ViewBag.Album =  new Models.Album { Title = "Mike" };
             return View();
         }
         [ChildActionOnly]
