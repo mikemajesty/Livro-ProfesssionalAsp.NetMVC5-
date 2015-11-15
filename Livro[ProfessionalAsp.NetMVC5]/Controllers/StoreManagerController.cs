@@ -15,7 +15,20 @@ namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
         {
             return View(db.Albums.Include(c=>c.Genre).Include(c=>c.Artist).ToList());
         }
-
+        public ActionResult DailyDeal()
+        {
+            var album = GetDailyDeal();
+            return PartialView("_DailyDeal", album);
+        }
+        // Select an album and discount it by 50%
+        private Album GetDailyDeal()
+        {
+            var album = db.Albums
+                .OrderBy(a => System.Guid.NewGuid())
+                .First();
+            album.Price *= 0.5m;
+            return album;
+        }
         // GET: StoreManager/Details/5
         public ActionResult Details(int? id)
         {

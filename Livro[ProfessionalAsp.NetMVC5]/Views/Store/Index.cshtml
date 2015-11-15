@@ -5,7 +5,18 @@
 }
 
 <h2>A Very Simple Store</h2>
-
+<div id="dailydeal">
+    @Ajax.ActionLink("Click here to see today's special!",
+        "DailyDeal",
+        null,
+        new AjaxOptions
+        {
+            UpdateTargetId = "dailydeal",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET"
+        },
+        new { @class = "btn btn-primary" })
+</div>
 <table class="table table-striped">
     <tr>
         <th>
@@ -34,3 +45,8 @@
 }
 
 </table>
+
+@section scripts{
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}

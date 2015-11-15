@@ -7,6 +7,7 @@ namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
 {
     public class StoreController : Controller
     {
+        private MusicStoreDBContext db = new MusicStoreDBContext();
         [AllowAnonymous]
         public ActionResult Index()
         {
@@ -15,7 +16,7 @@ namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
             return View(albums);
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult Buy(int id)
         {
             var album = GetAlbums().Single(a => a.AlbumId == id);
@@ -23,7 +24,20 @@ namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
             //Charge the user and ship the album!!!
             return View(album);
         }
-
+        public ActionResult DailyDeal()
+        {
+            var album = GetDailyDeal();
+            return PartialView("_DailyDeal", album);
+        }
+        // Select an album and discount it by 50%
+        private Album GetDailyDeal()
+        {
+            var album = db.Albums
+                .OrderBy(a => System.Guid.NewGuid())
+                .First();
+            album.Price *= 0.5m;
+            return album;
+        }
         // A simple music catalog
         private static List<Album> GetAlbums()
         {
