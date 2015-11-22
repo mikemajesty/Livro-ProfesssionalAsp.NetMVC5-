@@ -7,17 +7,22 @@ using System.Web.Security;
 
 namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
 {
+    [RoutePrefix("Order")]
+    [Route("{action}")]
+    [Route("{action=Index}/{id?}")]
     public class OrderController : Controller
     {
         private MusicStoreDBContext db = new MusicStoreDBContext();
-
-        // GET: Order
+       
+        [Route("")]
+        [Route("home")]
+        [Route("home/index")]
         public ActionResult Index()
         {
             return View(db.Orders.ToList());
         }
-
-        // GET: Order/Details/5
+        [Route("~/")]
+        [Route("person/{id}")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -55,7 +60,7 @@ namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
             return View(order);
         }
 
-        // GET: Order/Edit/5
+       
         public ActionResult Edit(int? id)
         {
             if (id == null)

@@ -10,7 +10,9 @@ namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
     public class HomeController : Controller
     {
 
-        // GET: Home
+        [Route("")]
+        [Route("home")]
+        [Route("home/index")]
         public ActionResult Index()
         {
             return View();

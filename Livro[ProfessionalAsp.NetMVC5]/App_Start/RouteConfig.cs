@@ -11,6 +11,7 @@ namespace Livro_ProfessionalAsp.NetMVC5_
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.MapMvcAttributeRoutes();
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
