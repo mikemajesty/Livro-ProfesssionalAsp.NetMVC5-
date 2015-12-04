@@ -7,12 +7,16 @@ using System.Web.Mvc;
 
 namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
+
+
 
         [Route("")]
         [Route("home")]
         [Route("home/index")]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
