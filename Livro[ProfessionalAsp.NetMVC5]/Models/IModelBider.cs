@@ -16,7 +16,8 @@ namespace Livro_ProfessionalAsp.NetMVC5_.Models
             {
                 ModelMetadata = bindingContext.ModelMetadata,
                 ModelState = bindingContext.ModelState,
-                PropertyFilter = bindingContext.PropertyFilter,
+              
+
                 ValueProvider = bindingContext.ValueProvider
             };
             return true;
