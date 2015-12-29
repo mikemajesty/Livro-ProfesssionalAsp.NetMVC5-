@@ -7,19 +7,19 @@ namespace Livro_ProfessionalAsp.NetMVC5_.Models
     {
         public bool BindModel(ModelBindingExecutionContext modelBindingExecutionContext, ModelBindingContext bindingContext)
         {
-            var valueProvider = bindingContext.ValueProvider;
-            int x = (int)valueProvider.GetValue("X").ConvertTo(typeof(int));
-            int y = (int)valueProvider.GetValue("Y").ConvertTo(typeof(int));
-            if (!bindingContext.FallbackToEmptyPrefix)
-                return false;
-            bindingContext = new ModelBindingContext
-            {
-                ModelMetadata = bindingContext.ModelMetadata,
-                ModelState = bindingContext.ModelState,
+            //var valueProvider = bindingContext.ValueProvider;
+            //int x = (int)valueProvider.GetValue("X").ConvertTo(typeof(int));
+            //int y = (int)valueProvider.GetValue("Y").ConvertTo(typeof(int));
+            //if (!bindingContext.FallbackToEmptyPrefix)
+            //    return false;
+            //bindingContext = new ModelBindingContext
+            //{
+            //    ModelMetadata = bindingContext.ModelMetadata,
+            //    ModelState = bindingContext.ModelState,
               
 
-                ValueProvider = bindingContext.ValueProvider
-            };
+            //    ValueProvider = bindingContext.ValueProvider
+            //};
             return true;
         }
 

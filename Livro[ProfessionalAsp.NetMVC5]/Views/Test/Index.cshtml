@@ -1,8 +1,9 @@
-﻿
+﻿@model Livro_ProfessionalAsp.NetMVC5_.Models.SalutationViewModel
+
 @{
     ViewBag.Title = "Index";
 }
-
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 <h2>Index</h2>
 @{
 
@@ -14,8 +15,10 @@
     </span>
     @Html.Raw("Album:")<br />
     @Html.TextBox("Album")<br />
-    @Html.Raw("AlbumArtUrl:")<br />
     @Html.TextBox("AlbumArtUrl")<br />
     @Html.Raw("Album.AlbumArtUrl:")<br />
-    @Html.TextBox("Album.AlbumArtUrl")
+    @Html.EditorFor(c=>c.Salutation,new { htmlAttributes = new { @class = "checkbox" } }/*,templateName: "Enum-radio"*/)
+    <input class="form-control"/>
+    @Html.EnumDropDownListFor(c=>c.Salutation,new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.Salutation)
 }

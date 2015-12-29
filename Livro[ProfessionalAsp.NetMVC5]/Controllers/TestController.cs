@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Livro_ProfessionalAsp.NetMVC5_.Controllers
 {
+    [AllowAnonymous()]
     public class TestController : Controller
     {
         // GET: Test

@@ -220,6 +220,8 @@
     <Compile Include="Models\MusicStoreDBContextInitializer.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Salutation.cs" />
+    <Compile Include="Models\SalutationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -298,6 +300,7 @@
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Store\Buy.cshtml" />
     <Content Include="Views\Store\_DailyDeal.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Enum-radio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
